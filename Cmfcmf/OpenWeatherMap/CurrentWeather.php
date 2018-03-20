@@ -135,7 +135,7 @@ class CurrentWeather
             $this->precipitation = new Unit($rainValue, $rainUnit);
 
             $this->sun = new Sun(\DateTime::createFromFormat('U', $data->sys->sunrise, $utctz), \DateTime::createFromFormat('U', $data->sys->sunset, $utctz));
-            $this->weather = new Weather($data->weather[0]->id, $data->weather[0]->description, $data->weather[0]->icon);
+            $this->weather = new Weather($data->weather[0]->id, $data->weather[0]->description, $data->weather[0]->icon, $data->weather[0]->main);
             $this->lastUpdate = \DateTime::createFromFormat('U', $data->dt, $utctz);
         }
     }

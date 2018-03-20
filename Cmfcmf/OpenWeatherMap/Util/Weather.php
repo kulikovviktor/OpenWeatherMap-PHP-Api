@@ -38,6 +38,11 @@ class Weather
     public $icon;
 
     /**
+     * @var string group of weather parameters (Rain, Snow, Extreme etc.)
+     */
+    public $main;
+
+    /**
      * @var string The url for icons.
      *
      * @see self::getIconUrl() to see how it is used.
@@ -50,14 +55,16 @@ class Weather
      * @param int    $id          The icon id.
      * @param string $description The weather description.
      * @param string $icon        The icon name.
+     * @param string $main        The weather group.
      *
      * @internal
      */
-    public function __construct($id, $description, $icon)
+    public function __construct($id, $description, $icon, $main = null)
     {
         $this->id = (int)$id;
         $this->description = (string)$description;
         $this->icon = (string)$icon;
+        $this->main = (string)$main;
     }
 
     /**
